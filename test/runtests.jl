@@ -7,6 +7,7 @@ using Example2018
 # 2. Additive identity
 # 3. Additive inverse
 # 4. Additive commutes
+## 5. Associative
 # 5. Multiplication is ...
 
 @test 2==2
