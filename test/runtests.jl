@@ -1,8 +1,18 @@
+using Test
+
 using Example2018
 
-@show Polynomial([1,2,3])
-@show evaluate(Polynomial([1,2,3]), 2)
-@show Polynomial([1,2,3]) + Polynomial([4,5])
-@show 3 * Polynomial([1,2,4,42])
-@show deriv(Polynomial([1,1,1,1,1]))
-@show deriv(Polynomial([0,0,1,0,0]))
+## Polynomials form a ring
+# 1. Addition is associative
+# 2. Additive identity
+# 3. Additive inverse
+# 4. Additive commutes
+# 5. Multiplication is ...
+
+@test 2==2
+@test 1==1
+
+z = Polynomial([0])
+p = Polynomial([1,2,3])
+## Need to create function to compare polynomials, like substract them and find out it is a zero polynomial
+@test p + z == p

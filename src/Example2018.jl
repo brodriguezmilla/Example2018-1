@@ -36,7 +36,7 @@ end
 
 function Base. +(p::Polynomial, q::Polynomial)
     l = max(length(p.coeffs), length(q.coeffs))
-    rcoeffs = zeros(l)
+    rcoeffs = zeros(eltype(p.coeffs),l)  ## l is short for element
     for (i,c) in enumerate(p.coeffs)
         rcoeffs[i] += c
     end
@@ -56,6 +56,20 @@ function deriv(p::Polynomial)
     Polynomial([(i-1) * c for (i,c) in enumerate(p.coeffs)][2:end])
 end
 
+function Base. -(p::Polynomial)
+    (-1) * p
+end
+
+function Base. -(p::Polynomial, q::Polynomial)
+    p + (-q)
+end
+
+function Base. ==(p::Polynomial, q::Polynomial)
+    d = p - q
+    ###all(c -> c==0, d.coeffs)
+    ##or
+    all(d.coeffs .== 0) ### all takes an arrray and checks if they are all true
+end
 
 
 end
